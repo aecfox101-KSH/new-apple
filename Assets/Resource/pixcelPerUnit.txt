@@ -1,0 +1,7 @@
+BackGround: 16
+Surface_Layer: 16
+heart: 16
+obstacle: 16
+
+Explosion: 32
+shoot : 32
