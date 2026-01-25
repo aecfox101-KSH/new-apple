@@ -1,7 +1,8 @@
 using UnityEngine;
 
-public class Obstacledown : MonoBehaviour
+public class ObstacleController : MonoBehaviour
 {
+    public Animator animator;
     public GM scriptGm;
     //데이터타입 이름 값
     public Rigidbody2D rb;
@@ -15,6 +16,8 @@ public class Obstacledown : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        animator.SetTrigger("crushed");
+
         // = : 대입 , == : 비교 (같은지 다른지)
         if (collision.name == "player")
         {
@@ -33,6 +36,7 @@ public class Obstacledown : MonoBehaviour
             Debug.Log("목숨 - 1");
 
             scriptGm.playerLife--;//-= 1;
+            scriptGm.UpdateHeartUI();
         }
     }
 }
