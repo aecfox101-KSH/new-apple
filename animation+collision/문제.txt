@@ -1,0 +1,10 @@
+velocity를 활용해 운석(obstacle)을 좌->우로 이동시키시오.
+운석이 선(line)에 부딪히면 폭발애니메이션이 실행되도록 하시오.
+
+[힌트]
+- 운석과 선은 무슨 충돌을 하고 있는가?
+- 운석이 충돌을 하기 위해서는 어떤 조건을 만족해야하는가?
+- Animatior: Animation들을 관리
+- Animation: 클립
+                  탭: 컨트롤+6 / window > Animation > Animation
+- 클립실행조건에 parameter를 활용할 수 있다.

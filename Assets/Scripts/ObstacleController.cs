@@ -7,11 +7,27 @@ public class ObstacleController : MonoBehaviour
     //데이터타입 이름 값
     public Rigidbody2D rb;
     [Range(0, 10)] public float moveSpeed = 3;
+    public float time_current;
+    public bool isCrushed =false; // bool : ture, false 값으로 가짐.
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        scriptGm = GameObject.Find("Gm").GetComponent<GM>();
         rb.linearVelocity = new Vector2(0, -1) * moveSpeed;
+    }
+
+    void Update()
+    {
+        if(isCrushed == true)
+        {
+            time_current += Time.deltaTime;
+            if (time_current > 0.5f)
+            {
+                Destroy(this.gameObject);
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -29,6 +45,9 @@ public class ObstacleController : MonoBehaviour
             // 2. 실제로 파괴
             Destroy(collision.gameObject);
 
+            // 운석파괴
+            isCrushed = true;
+
         }
 
         if (collision.name == "deadzone")
@@ -37,6 +56,8 @@ public class ObstacleController : MonoBehaviour
 
             scriptGm.playerLife--;//-= 1;
             scriptGm.UpdateHeartUI();
+
+            isCrushed = true;
         }
     }
 }
