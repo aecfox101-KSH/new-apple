@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.Rendering;
+
 
 public class Bullet : MonoBehaviour
 {
@@ -33,6 +33,7 @@ public class Bullet : MonoBehaviour
 
             // 운석 파괴
             collision.GetComponent<ObstacleController>().isCrushed = true;
+            collision.GetComponent<BoxCollider2D>().enabled = false;
 
         }
     }

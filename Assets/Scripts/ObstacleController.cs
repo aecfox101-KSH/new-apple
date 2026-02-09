@@ -48,6 +48,8 @@ public class ObstacleController : MonoBehaviour
             // 운석파괴
             isCrushed = true;
 
+            // 게임 종료
+            scriptGm.GameOver();
         }
 
         if (collision.name == "deadzone")
@@ -56,6 +58,12 @@ public class ObstacleController : MonoBehaviour
 
             scriptGm.playerLife--;//-= 1;
             scriptGm.UpdateHeartUI();
+
+            // 목숨이 0이면 게임 종료
+            if(scriptGm.playerLife == 0)
+            {
+                scriptGm.GameOver();
+            }
 
             isCrushed = true;
         }
