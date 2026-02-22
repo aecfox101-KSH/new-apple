@@ -5,18 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class GM : MonoBehaviour
 {
-    public int score;
+    [Header("점수")][Tooltip("점수")]public int score; // 점수
     public Text A;
-    public GameObject gameOverWindow;
+    [Header("게임 오버창")] public GameObject gameOverWindow;
     public Text overWindowScore;
 
-    public int playerLife = 3;
+    [Header("목숨")] public int playerLife = 3;
     public List<Image> heartIMGs;
 
-    public GameObject obstacle;
+    [Header("운석")] public GameObject obstacle;
     public float time_current;
     [Range(0,1f)] public float regentime = 1.0f;
 
+    /// <summary>
+    /// 운석을 생성하는 함수
+    /// </summary>
     public void MakeObstacle()
     {
         Instantiate(obstacle, new Vector3(Random.Range(-2.8f,+2.8f), 5, 0), Quaternion.identity); // Instantiate 복제

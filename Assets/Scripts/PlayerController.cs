@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent (typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
     public Rigidbody2D playerRB;
@@ -10,7 +11,8 @@ public class PlayerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        playerRB = GetComponent<Rigidbody2D>(); // Rigidbody2D 컴포넌트를 가져와서 playerRB 변수에 저장
+        playerRB.bodyType = RigidbodyType2D.Kinematic; // 물리엔진의 영향을 받지 않도록 설정
     }
 
     // Update is called once per frame
